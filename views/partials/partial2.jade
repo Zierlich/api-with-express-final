@@ -92,11 +92,9 @@ html(lang='en')
         hr
         ul.rel-results
           li(data-ng-repeat='book in relatedBooks | orderBy: order')
-            a(href='#', id='{{ $index + 1 }}', ng-click='update(book)')
-              // <img ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" class="thumbnail animated flip movie-poster">
-              | {{book.volumeInfo.title}}
-            | ,
-            |                {{book.saleInfo.listPrice.amount | currency}}
+              a(href='#', id='{{ $index + 1 }}', ng-click='update(book)')
+                | {{book.volumeInfo.title}} &nbsp
+                span {{book.saleInfo.listPrice.amount | currency}}
 br
 .bottomLine.animated.zoomInRight
 div(ng-app='dev', align='center')

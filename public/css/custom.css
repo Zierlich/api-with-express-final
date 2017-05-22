@@ -11,16 +11,13 @@ body {
   background-attachment: fixed;
 }
 
-ul.rel-results {
-  list-style-type: circle;
-}
 
 .nosearch {
   font-size: 13pt;
   color: gray;
-  height: 400px;
+  height: 350px;
   width: 100%;
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 .nojs {
@@ -57,6 +54,8 @@ ul.rel-results {
   -moz-animation-delay: 1.5s;
   -webkit-animation-delay: 1.5s;
 }
+
+
 
 .movie-poster {
   float: left;
@@ -113,7 +112,35 @@ ul.rel-results {
 .selectdemoBasicUsage md-input-container {
   margin-right: 10px; }
 
+.rel-results {
+  font-size: 11pt;
+  color: black;
+  text-align: justify;
+}
 
+.rel-results span {
+  color: royalBlue;
+}
+
+.rel-results a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.rel-results a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.rel-results a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.rel-results a:visited {
+  color: black;
+  text-decoration: none;
+}
 
 /* Overriding bootstrap classes */
 /*.partial1 {
