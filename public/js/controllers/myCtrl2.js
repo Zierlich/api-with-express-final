@@ -3,15 +3,11 @@ app.controller('MyCtrl2', function ($scope,$http) {
   $scope.$watch('search',function() {
       fetch();
       });
-       $scope.$watch('filter',function() {
-      fetch();
-      });
 
       $scope.search = "";
-      $scope.filter = "full";
 
       function fetch() {
-      $http.get("https://www.googleapis.com/books/v1/volumes?q=" + $scope.search +"&filter=" + $scope.filter).then(function(res) {
+      $http.get("https://www.googleapis.com/books/v1/volumes?q=" + $scope.search).then(function(res) {
     		console.log(res.data);
         $scope.relatedBooks = res.data.items;
         $scope.related = res.data;

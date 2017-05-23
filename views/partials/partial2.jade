@@ -13,6 +13,8 @@ html(lang='en')
   
       
 .container-fluid.outerdiv
+  .animated.zoomInRight
+  
   .input-group.search-bar
     input.form-control(type='text', ng-model='search', ng-model-options='{ debounce: 800 }', onclick='select()', placeholder='Enter book title', autofocus='')
     span.input-group-addon.bar-style
@@ -21,6 +23,7 @@ html(lang='en')
     center
       span Nothing to search ...
   div.animated.zoomInRight(ng-if='bookInfo', ng-hide='search == false')
+
     #main-info.col-sm-8
       img.thumbnail.animated.flip.movie-poster(ng-src='{{bookInfo.imageLinks.smallThumbnail}}')
       span.span-outer
@@ -75,26 +78,40 @@ html(lang='en')
         p
   div#related-results.col-sm-4.col-xs-4.animated.bounce.related-results(ng-if='bookInfo', ng-hide='search == false')
     div 
-      div(layout='row', layout-align='space-between center')
-        span Sort by: &nbsp
-        select.md-no-underline(ng-model='filter', placeholder='Ebooks')
-          option(value='full') All books
-          option(value='free-ebooks') Free books
-          option(value='paid-ebooks') Paid books
-        | &nbsp
-        select.md-no-underline(ng-model='order', placeholder='Price')
-          option(value='saleInfo.listPrice.amount') low to high
-          option(value='-saleInfo.listPrice.amount') high to low
+    
+    div(layout='row', layout-align='space-between center')
+      span Sort by:
+      select.md-no-underline#select(ng-model='filter', placeholder='Ebooks')
+        option(value='') All books
+        option(value='FREE') Free
+        option(value='FOR_SALE') For sale
+        option(value='NOT_FOR_SALE') Not for sale
+      select.md-no-underline(ng-model='order', placeholder='Price')
+        option(value='') Price
+        option(value='saleInfo.listPrice.amount') low to high
+        option(value='-saleInfo.listPrice.amount') high to low
+        br
+
         
       md-card-content
+        br
         br
         | Related Results:
         hr
         ul.rel-results
+<<<<<<< HEAD
           li(data-ng-repeat='book in relatedBooks | orderBy: order')
               a(href='{{ book.volumeInfo.previewLink }}', target='_blank', id='{{ $index + 1 }}', ng-click='update(book)')
                 | {{book.volumeInfo.title}} &nbsp
                 span {{book.saleInfo.listPrice.amount | currency}}
+=======
+          li(data-ng-repeat='book in relatedBooks | orderBy: order | filter: filter')
+            md-button.result(href='#', id='{{ $index + 1 }}', ng-click='update(book)')
+            
+              | {{book.volumeInfo.title}}
+            | ,
+            |                {{book.saleInfo.listPrice.amount | currency}}
+>>>>>>> 0efd7045b997796fdf9e9eed3a629e5cfaed5ab2
 br
 .bottomLine.animated.zoomInRight
 div(ng-app='dev', align='center')
