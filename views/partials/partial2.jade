@@ -99,19 +99,18 @@ html(lang='en')
         | Related Results:
         hr
         ul.rel-results
-<<<<<<< HEAD
+
           li(data-ng-repeat='book in relatedBooks | orderBy: order')
               a(href='{{ book.volumeInfo.previewLink }}', target='_blank', id='{{ $index + 1 }}', ng-click='update(book)')
                 | {{book.volumeInfo.title}} &nbsp
                 span {{book.saleInfo.listPrice.amount | currency}}
-=======
+
           li(data-ng-repeat='book in relatedBooks | orderBy: order | filter: filter')
             md-button.result(href='#', id='{{ $index + 1 }}', ng-click='update(book)')
             
               | {{book.volumeInfo.title}}
-            | ,
-            |                {{book.saleInfo.listPrice.amount | currency}}
->>>>>>> 0efd7045b997796fdf9e9eed3a629e5cfaed5ab2
+              span {{book.saleInfo.listPrice.amount | currency}}
+
 br
 .bottomLine.animated.zoomInRight
 div(ng-app='dev', align='center')
